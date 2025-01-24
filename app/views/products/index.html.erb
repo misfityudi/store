@@ -1,9 +1,9 @@
-<h1>Products</h1>
-<%= link_to "New product", new_product_path if authenticated? %>
-<div id="products">
+<div class="p-5 flex justify-between">
+  <h1>Products</h1>
+  <%= link_to "New product", new_product_path, class: "px-4 py-2 bg-cyan-700 rounded-md" if authenticated? %>
+</div>
+<div id="products" class="p-5 grid grid-cols-3 gap-5">
   <% @products.each do |product| %>
-    <div>
-      <%= link_to product.name, product %>
-    </div>
+    <%= render partial: "product", locals: { product: product } %>
   <% end %>
 </div>
