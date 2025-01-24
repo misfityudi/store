@@ -1,5 +1,15 @@
-<h1><%= @product.name %></h1>
-<%= image_tag @product.featured_image if @product.featured_image.attached? %>
-<%= link_to "Back", products_path %>
-<%= link_to "Edit", edit_product_path(@product) %>
-<%= button_to "Delete", @product, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+<div class="p-5 flex flex-col gap-5">
+  <h1><%= @product.name %></h1>
+  <%= image_tag @product.featured_image if @product.featured_image.attached? %>
+  <p><%= @product.description %></p>
+  <p>Inventory: <%= @product.inventory_count %></p>
+  <div class="flex flex-col gap-5">
+    <%= link_to "Back", products_path, class:"px-4 py-2 bg-cyan-700 rounded-md text-center" %>
+    <div class="flex gap-5">
+      <%= link_to "Edit", edit_product_path(@product), class:"w-1/2 px-4 py-2 bg-cyan-700 rounded-md text-center" %>
+      <div class="w-1/2">
+        <%= button_to "Delete", @product, method: :delete, data: { turbo_confirm: "Are you sure?" }, class:"w-full px-4 py-2 bg-red-700 rounded-md text-center"%>
+      </div>
+    </div>
+  </div>
+</div>
