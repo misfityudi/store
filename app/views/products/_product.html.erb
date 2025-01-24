@@ -1,0 +1,6 @@
+<%= link_to product, class: "block border-2 border-cyan-700 p-5 flex flex-col gap-3" do %>
+  <h2 class="text-xl font-bold"><%= product.name %></h2>
+  <%= image_tag product.featured_image if product.featured_image.attached? %>
+  <p><%= product.description %></p>
+  <p>Inventory: <%= product.inventory_count %></p>
+<% end %>
