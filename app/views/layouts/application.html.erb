@@ -19,6 +19,7 @@
     <%= javascript_importmap_tags %>
   </head>
   <body class="bg-cyan-100 flex flex-col">
+    <div class="notice"><%= notice %></div>
     <nav class="bg-cyan-600 flex p-5 justify-between">
       <%= link_to t("store"), root_path %>
       <%= button_to t("logout"), session_path, method: :delete if authenticated? %>
