@@ -20,8 +20,8 @@
   </head>
   <body class="bg-cyan-100 flex flex-col">
     <nav class="bg-cyan-600 flex p-5 justify-between">
-      <%= link_to "Store", root_path %>
-      <%= button_to "Log out", session_path, method: :delete if authenticated? %>
+      <%= link_to t("store"), root_path %>
+      <%= button_to t("logout"), session_path, method: :delete if authenticated? %>
     </nav>
     <main>
       <%= yield %>
