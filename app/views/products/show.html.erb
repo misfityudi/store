@@ -1,7 +1,9 @@
 <div class="p-5 flex flex-col gap-5">
-  <h1><%= @product.name %></h1>
-  <%= image_tag @product.featured_image if @product.featured_image.attached? %>
-  <p><%= @product.description %></p>
+  <% cache @product do %>
+    <h1><%= @product.name %></h1>
+    <%= image_tag @product.featured_image if @product.featured_image.attached? %>
+    <p><%= @product.description %></p>
+  <% end %>
   <p>Inventory: <%= @product.inventory_count %></p>
   <div class="flex flex-col gap-5">
     <%= link_to "Back", products_path, class:"px-4 py-2 bg-cyan-700 rounded-md text-center" %>
