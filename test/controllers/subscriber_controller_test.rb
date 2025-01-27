@@ -1,18 +1,19 @@
 require "test_helper"
 
-class SubscriberControllerTest < ActionDispatch::IntegrationTest
-  test "should get create" do
-    get subscriber_create_url
-    assert_response :success
+class SubscribersControllerTest < ActionDispatch::IntegrationTest
+  test "should create subscriber" do
+    product = products(:tshirt)
+
+    post product_subscribers_url(product), params: { subscriber: { email: "david@example.com" } }
+    assert_redirected_to product
   end
 
-  test "should get set_product" do
-    get subscriber_set_product_url
-    assert_response :success
-  end
+  test "should delete subscriber" do
+    product = products(:tshirt)
+    subscriber = subscribers(:david)
 
-  test "should get subscriber_params" do
-    get subscriber_subscriber_params_url
-    assert_response :success
+    assert_difference("Subscriber.count", -1) do
+      post unsubscribe_url(token: subscriber.generate_token_for(:unsubscribe))
+    end
   end
 end

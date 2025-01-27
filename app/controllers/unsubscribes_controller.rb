@@ -2,7 +2,7 @@ class UnsubscribesController < ApplicationController
   allow_unauthenticated_access
   before_action :set_subscriber
 
-  def show
+  def create
     @subscriber&.destroy
     redirect_to root_path, notice: "Unsubscribed successfully."
   end
