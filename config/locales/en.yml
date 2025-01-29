@@ -31,3 +31,4 @@ en:
   hello: "Hello world"
   store: "Store"
   logout: "Logout"
+  login: "Login"
